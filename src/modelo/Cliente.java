@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class Cliente {
 	
-	public int id;
-	public String nombre;
-	public String apellidos;
-	public String dni;
-	public Date fechaNacimiento;
+	private int id;
+	private String nombre;
+	private String apellidos;
+	private String dni;
+	private Date fechaNacimiento;
 	
 	
 	
