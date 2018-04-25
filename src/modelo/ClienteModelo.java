@@ -1,5 +1,6 @@
 package modelo;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -36,6 +37,59 @@ public class ClienteModelo extends Conector{
 		
 		return null;
 		
+	}
+	
+	
+	public Cliente login(String usuario, String contrasena){
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement("SELECT * FROM clientes WHERE nombreUsuario = ? AND contrasena = ?");
+			
+			pst.setString(1, usuario);
+			pst.setString(2, contrasena);
+			
+			ResultSet rs = pst.executeQuery();
+			
+			if(rs.next()){
+				Cliente cliente = new Cliente();
+				this.selectPorUsuario(usuario);
+				
+				return cliente;
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+		
+		
+	}
+	
+	public Cliente selectPorUsuario(String usuario){
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement("SELECT * FROM clientes WHERE nombreUsuario = ?");
+			
+			pst.setString(1, usuario);
+			
+			ResultSet rs = pst.executeQuery();
+			
+			if(rs.next()){
+				Cliente cliente = new Cliente();
+				cliente.setNombreUsuario(usuario);
+				cliente.setNombre(rs.getString("nombre"));
+				cliente.setApellidos(rs.getString("apellidos"));
+				cliente.setDni(rs.getString("dni"));
+				cliente.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
+				
+				return cliente;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 	
 	
