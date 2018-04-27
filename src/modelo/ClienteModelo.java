@@ -25,7 +25,7 @@ public class ClienteModelo extends Conector{
 				cliente.setApellidos(rs.getString("apellidos"));
 				cliente.setDni(rs.getString("dni"));
 				cliente.setFechaNacimiento(rs.getDate("fechaNacimiento"));
-				
+				cliente.setRol(rs.getString("rol"));
 				clientes.add(cliente);
 				
 			}
@@ -52,8 +52,8 @@ public class ClienteModelo extends Conector{
 			
 			if(rs.next()){
 				Cliente cliente = new Cliente();
-				this.selectPorUsuario(usuario);
-				
+				cliente.setNombreUsuario(rs.getString("nombreUsuario"));
+				cliente.setContrasena(rs.getString("contrasena"));
 				return cliente;
 				
 			}
@@ -81,7 +81,9 @@ public class ClienteModelo extends Conector{
 				cliente.setNombre(rs.getString("nombre"));
 				cliente.setApellidos(rs.getString("apellidos"));
 				cliente.setDni(rs.getString("dni"));
-				cliente.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
+				cliente.setFechaNacimiento(rs.getDate("fechaNacimiento"));
+				cliente.setContrasena(rs.getString("contrasena"));
+				cliente.setRol(rs.getString("rol"));
 				
 				return cliente;
 			}

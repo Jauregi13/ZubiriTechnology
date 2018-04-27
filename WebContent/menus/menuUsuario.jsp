@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="modelo.*" %>
+<% 
+
+Cliente cliente = (Cliente)session.getAttribute("usuario");
+
+%>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="http://localhost:8080/Biblioteca/css/style.css" type ="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -39,10 +45,10 @@
 	    </ul>
 	    <ul class="navbar-nav">
 	    	<li class="nav-item">
-	       		<a class="nav-link disabled" href="#">Registrarse</a>
+	       		<a class="nav-link disabled" href="#"><%=cliente.getNombreUsuario() %></a>
 	      	</li>
 		    <li class="nav-item">
-		        <a class="nav-link disabled" href="#" >Iniciar Sesión</a>
+		        <a class="nav-link disabled" href="#" >Cerrar Sesión</a>
 		    </li>
 	    
 	    </ul>

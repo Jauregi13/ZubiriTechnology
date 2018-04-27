@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import modelo.Cliente;
 import modelo.ClienteModelo;
 
-public class login extends HttpServlet {
+public class Login extends HttpServlet {
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		

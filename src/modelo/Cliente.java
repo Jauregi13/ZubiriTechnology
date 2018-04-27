@@ -11,10 +11,18 @@ public class Cliente {
 	private Date fechaNacimiento;
 	private String nombreUsuario;
 	private String contrasena;
+	private String rol;
 	
 	
 	
 	
+	
+	public String getRol() {
+		return rol;
+	}
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
 	public String getNombreUsuario() {
 		return nombreUsuario;
 	}
