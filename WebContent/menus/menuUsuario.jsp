@@ -45,10 +45,10 @@ Cliente cliente = (Cliente)session.getAttribute("usuario");
 	    </ul>
 	    <ul class="navbar-nav">
 	    	<li class="nav-item">
-	       		<a class="nav-link disabled" href="#"><%=cliente.getNombreUsuario() %></a>
+	       		<a class="nav-link" href="#"><%=cliente.getNombreUsuario() %></a>
 	      	</li>
 		    <li class="nav-item">
-		        <a class="nav-link disabled" href="#" >Cerrar Sesión</a>
+		        <a class="nav-link" href="http://localhost:8080/TiendaOnline/Logout.jsp" >Cerrar Sesión</a>
 		    </li>
 	    
 	    </ul>
