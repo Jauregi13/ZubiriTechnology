@@ -9,6 +9,7 @@ public class Cliente {
 	private String apellidos;
 	private String dni;
 	private Date fechaNacimiento;
+<<<<<<< HEAD
 	private String nombreUsuario;
 	private String contrasena;
 	private String rol;
@@ -35,6 +36,13 @@ public class Cliente {
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
+=======
+	
+	
+	
+	
+	
+>>>>>>> branch 'Jhonny' of https://github.com/Jauregi13/ZubiriTechnology.git
 	public int getId() {
 		return id;
 	}
