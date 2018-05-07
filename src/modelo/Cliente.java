@@ -9,11 +9,40 @@ public class Cliente {
 	private String apellidos;
 	private String dni;
 	private Date fechaNacimiento;
+<<<<<<< HEAD
 	
 	
 	
 	
 	
+=======
+	private String nombreUsuario;
+	private String contrasena;
+	private String rol;
+	
+	
+	
+	
+	
+	public String getRol() {
+		return rol;
+	}
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+	public String getNombreUsuario() {
+		return nombreUsuario;
+	}
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
+	}
+	public String getContrasena() {
+		return contrasena;
+	}
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+>>>>>>> refs/remotes/origin/master
 	public int getId() {
 		return id;
 	}

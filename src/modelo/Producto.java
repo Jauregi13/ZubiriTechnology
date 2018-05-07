@@ -2,6 +2,7 @@ package modelo;
 
 public class Producto {
 	
+<<<<<<< HEAD
 	private int id;
 	private int id_categoria;
 	private String nombre;
@@ -58,6 +59,8 @@ public class Producto {
 	
 	
 	
+=======
+>>>>>>> refs/remotes/origin/master
 	
 
 }

@@ -1,5 +1,6 @@
 package modelo;
 
+<<<<<<< HEAD
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -35,3 +36,8 @@ return null;
 }
 
 }
+=======
+public class ProductoModelo {
+
+}
+>>>>>>> refs/remotes/origin/master
