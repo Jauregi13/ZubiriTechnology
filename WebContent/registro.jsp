@@ -35,7 +35,9 @@ cliente.setContrasena(password);
 
 clienteModelo.registro(cliente);
 
-session.setAttribute("usuario", cliente);
+Cliente clienteValido = clienteModelo.selectPorUsuario(nomUsuario);
+
+session.setAttribute("usuario", clienteValido);
 
 response.sendRedirect("http://localhost:8080/TiendaOnline/index.jsp");
 

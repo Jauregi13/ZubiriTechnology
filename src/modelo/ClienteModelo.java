@@ -78,6 +78,7 @@ public class ClienteModelo extends Conector{
 			
 			if(rs.next()){
 				Cliente cliente = new Cliente();
+				cliente.setId(rs.getInt("id"));
 				cliente.setNombreUsuario(usuario);
 				cliente.setNombre(rs.getString("nombre"));
 				cliente.setApellidos(rs.getString("apellidos"));
