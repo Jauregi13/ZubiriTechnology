@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.sql.Date;
 
 public class ClienteModelo extends Conector{
 	
@@ -92,5 +93,25 @@ public class ClienteModelo extends Conector{
 		}
 		
 		return null;
+	}
+	
+	
+	public void registro(Cliente cliente){
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement("INSERT INTO clientes (nombre, apellidos, fechaNacimiento, dni, nombreUsuario, contrasena) VALUES (?,?,?,?,?,?)");
+			
+			pst.setString(1, cliente.getNombre());
+			pst.setString(2, cliente.getApellidos());
+			pst.setDate(3, new java.sql.Date(cliente.getFechaNacimiento().getTime()));
+			pst.setString(4, cliente.getDni());
+			pst.setString(5, cliente.getNombreUsuario());
+			pst.setString(6, cliente.getContrasena());
+			
+			pst.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
