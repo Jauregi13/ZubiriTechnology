@@ -1,5 +1,6 @@
 package modelo;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -34,6 +35,33 @@ public class ProductoModelo extends Conector {
 		
 		return null;
 		
+	}
+	
+	public Producto selectPorId(int id_producto){
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement("SELECT * FROM productos WHERE id = ?");
+			
+			pst.setInt(1, id_producto);
+			
+			ResultSet rs = pst.executeQuery();
+			
+			if(rs.next()){
+				Producto producto = new Producto();
+				producto.setId(id_producto);
+				producto.setNombre(rs.getString("nombre"));
+				producto.setDescripcion(rs.getString("descripcion"));
+				producto.setPrecio(rs.getDouble("precio"));
+				producto.setStock(rs.getInt("stock"));
+				producto.setIdCategoria(rs.getInt("id_categoria"));
+				
+				return producto;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 	
 	

@@ -4,6 +4,8 @@
 <% 
 
 Cliente cliente = (Cliente)session.getAttribute("usuario");
+Carrito carrito = new Carrito();
+carrito.getContador();
 
 %>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -36,7 +38,7 @@ Cliente cliente = (Cliente)session.getAttribute("usuario");
 	  <div class="collapse navbar-collapse" id="navbarNav">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" href="http://localhost:8080/TiendaOnline/index.jsp">Inicio <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">Productos</a>
@@ -48,7 +50,7 @@ Cliente cliente = (Cliente)session.getAttribute("usuario");
 	       		<a class="nav-link" href="#"><%=cliente.getNombreUsuario() %></a>
 	      	</li>
 	      	<li class="nav-item">
-	       		<a class="nav-link" href="#">Carrito</a>
+	       		<a class="nav-link" href="http://localhost:8080/TiendaOnline/carrito.jsp">Carrito <%=carrito.getContador() %></a>
 	      	</li>
 		    <li class="nav-item">
 		        <a class="nav-link" href="http://localhost:8080/TiendaOnline/Logout.jsp" >Cerrar Sesión</a>

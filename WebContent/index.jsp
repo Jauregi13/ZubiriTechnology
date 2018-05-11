@@ -150,7 +150,7 @@ else {
 				  		<div class="card-body">
 				    		<h5 class="card-title"><%=producto.getNombre() %></h5>
 				    		<p class="card-text"><%=producto.getDescripcion() %></p>
-				    		<a href="#" class="btn btn-primary">Más info</a>
+				    		<a href="anadirCarrito.jsp?id=<%=producto.getId() %>" class="btn btn-primary">Más info</a>
 				  		</div>
 					</div>
 		
