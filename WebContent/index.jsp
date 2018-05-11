@@ -23,6 +23,8 @@ ArrayList<Producto> productos = productoModelo.selectAll();
 
 <%
 Object sesion = session.getAttribute("usuario");
+Cliente cliente = (Cliente)sesion;
+
 
 if(sesion == null){
 %>	
@@ -67,7 +69,6 @@ else if(sesion.equals("incorrecto")){
 	session.removeAttribute("usuario");
 	}
 else {
-		Cliente cliente = (Cliente)sesion;
 		if(cliente.getRol().equals("Usuario")){
 			%>
 			<jsp:include page="./menus/menuUsuario.jsp"></jsp:include>
@@ -145,11 +146,11 @@ else {
 				%>
 				<div class="col-sm-3">
 					<div class="card" style="width: 18rem;">
-				  		<img class="card-img-top" src="images/gtx.jpg" style="width:35%;" >
+				  		<center><img class="card-img-top" src="images/msiGeForceGTX1050.jpg" style="width:70%;" ></center>
 				  		<div class="card-body">
 				    		<h5 class="card-title"><%=producto.getNombre() %></h5>
 				    		<p class="card-text"><%=producto.getDescripcion() %></p>
-				    		<a href="#" class="btn btn-primary">Ir a Graficas</a>
+				    		<a href="#" class="btn btn-primary">Más info</a>
 				  		</div>
 					</div>
 		

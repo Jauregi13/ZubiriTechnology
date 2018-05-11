@@ -21,7 +21,6 @@ public class ProductoModelo extends Conector {
 				producto.setId(rs.getInt("id"));
 				producto.setNombre(rs.getString("nombre"));
 				producto.setDescripcion(rs.getString("descripcion"));
-				producto.setTipo(rs.getString("tipo"));
 				producto.setStock(rs.getInt("stock"));
 				producto.setIdCategoria(rs.getInt("id_categoria"));
 				
