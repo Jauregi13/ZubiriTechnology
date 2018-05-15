@@ -64,6 +64,36 @@ public class ProductoModelo extends Conector {
 		return null;
 	}
 	
+	public ArrayList<Producto> selectPorCategoriaId (int id_categoria){
+		
+		try {
+			ArrayList<Producto> productos = new ArrayList();
+			PreparedStatement pst = super.conexion.prepareStatement("SELECT * FROM productos WHERE id_categoria =?");
+			
+			pst.setInt(1, id_categoria);
+			
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()){
+				Producto producto = new Producto();
+				producto.setId(rs.getInt("id"));
+				producto.setDescripcion(rs.getString("descripcion"));
+				producto.setNombre(rs.getString("nombre"));
+				producto.setPrecio(rs.getDouble("precio"));
+				producto.setIdCategoria(id_categoria);
+				producto.setStock(rs.getInt("stock"));
+				
+				productos.add(producto);
+			}
+			
+			return productos;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
 	
 
 }

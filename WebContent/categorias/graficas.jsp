@@ -4,11 +4,14 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Iterator" %>
 <%
+
+int id_categoria = Integer.parseInt(request.getParameter("id"));
+
 CategoriaModelo categoriaModelo = new CategoriaModelo();
 ArrayList<Categoria> categorias = categoriaModelo.selectAll();
 
 ProductoModelo productoModelo = new ProductoModelo();
-ArrayList<Producto> productos = productoModelo.selectAll();
+ArrayList<Producto> productos = productoModelo.selectPorCategoriaId(id_categoria);
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -28,12 +31,12 @@ Cliente cliente = (Cliente)sesion;
 
 if(sesion == null){
 %>	
-	<jsp:include page="./menuPrincipal.html"></jsp:include>
+	<jsp:include page="./../menus/menuPrincipal.html"></jsp:include>
 <%
 }	
 else if(sesion.equals("incorrecto")){
 		%>
-		<jsp:include page="./menuPrincipal.html"></jsp:include>
+		<jsp:include page="./../menus/menuPrincipal.html"></jsp:include>
 		
 		<script>
 	      $(document).ready(function()
@@ -71,13 +74,13 @@ else if(sesion.equals("incorrecto")){
 else {
 		if(cliente.getRol().equals("Usuario")){
 			%>
-			<jsp:include page="./menuUsuario.jsp"></jsp:include>
+			<jsp:include page="./../menus/menuUsuario.jsp"></jsp:include>
 			<%
 		}
 		else {
 			
 			%>
-			<jsp:include page="./menuAdmin.jsp"></jsp:include>
+			<jsp:include page="./../menus/menuAdmin.jsp"></jsp:include>
 		<%
 		}
 	}	
@@ -144,9 +147,34 @@ img{max-width:100%;}
 </style>
 	
 <div class ="container">
-	
-<div id="demo" class="carousel slide" data-ride="carousel">
+
 	<div class="row">
+		<%
+		Iterator<Producto> i = productos.iterator();
+		
+		while(i.hasNext()){
+			Producto producto = i.next();
+			%>
+			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="my-list">
+					<img src="https://thumb.pccomponentes.com/w-530-530/articles/15/150033/d1.jpg" alt="hdd" />
+					<h3><%=producto.getNombre() %></h3>
+					<span>Tarjeta Gráfica</span>
+					<span class="pull-right">SKU:100022</span>
+					<div class="offer"><%=producto.getPrecio() %>€</div>
+					<div class="detail">
+					<p>Zubiri Technology 2018 </p>
+					<img src="https://thumb.pccomponentes.com/w-530-530/articles/15/150033/d1.jpg" alt="dsadas" />
+					<a href='http://localhost:8080/TiendaOnline/anadirCarrito.jsp?id=<%=producto.getId() %>' class="btn btn-info">Añadir al carrito</a>
+					<a href="#" class="btn btn-info">Detalles</a>
+					</div>
+				</div>
+			</div>
+			<%
+		}
+		
+		
+		%>
 		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		<div class="my-list">
 			<img src="https://thumb.pccomponentes.com/w-530-530/articles/15/150033/d1.jpg" alt="hdd" />
@@ -265,7 +293,6 @@ img{max-width:100%;}
 			<a href="#" class="btn btn-info">Add To Cart</a>
 			<a href="#" class="btn btn-info">Detalles</a>
 			</div>
-		</div>
 		</div>
 		</div>
 		</div>

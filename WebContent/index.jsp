@@ -24,9 +24,10 @@ ArrayList<Producto> productos = productoModelo.selectAll();
 <%
 Object sesion = session.getAttribute("usuario");
 Cliente cliente = (Cliente)sesion;
+Object sesion2 = session.getAttribute("carrito");
 
 
-if(sesion == null){
+if(sesion == null && sesion2 == null){
 %>	
 	<jsp:include page="./menus/menuPrincipal.html"></jsp:include>
 <%

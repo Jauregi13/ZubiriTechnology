@@ -26,7 +26,9 @@ ArrayList<Producto> productos = new ArrayList();
 productos.add(producto);
 
 carrito.setProductos(productos);
-carrito.setContador(1);
+carrito.setContador(carrito.getContador() + 1);
+
+session.setAttribute("carrito", carrito);
 
 response.sendRedirect("http://localhost:8080/TiendaOnline/index.jsp");
 

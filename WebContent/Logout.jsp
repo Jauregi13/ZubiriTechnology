@@ -3,6 +3,7 @@
 
 <%
 session.removeAttribute("usuario");
+session.removeAttribute("carrito");
 
 response.sendRedirect("http://localhost:8080/TiendaOnline/index.jsp");
 %>

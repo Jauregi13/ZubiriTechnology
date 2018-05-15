@@ -19,9 +19,12 @@
 	
 	cliente = clienteModelo.selectPorUsuario(nom_usuario);
 	
+	
 	if(cliente != null){
 		
 		session.setAttribute("usuario", cliente);
+		Carrito carrito = new Carrito();
+		session.setAttribute("carrito", carrito);
 		
 		response.sendRedirect("http://localhost:8080/TiendaOnline/index.jsp");
 	}

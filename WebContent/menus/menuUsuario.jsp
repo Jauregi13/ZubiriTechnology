@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="modelo.*" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Iterator" %>
 <% 
 
 Cliente cliente = (Cliente)session.getAttribute("usuario");
-Carrito carrito = new Carrito();
+Carrito carrito = (Carrito)session.getAttribute("carrito");
+CategoriaModelo categoriaModelo = new CategoriaModelo();
+ArrayList<Categoria> categorias = categoriaModelo.selectAll();
+
 carrito.getContador();
 
 %>
@@ -40,8 +45,22 @@ carrito.getContador();
 	      <li class="nav-item active">
 	        <a class="nav-link" href="http://localhost:8080/TiendaOnline/index.jsp">Inicio <span class="sr-only">(current)</span></a>
 	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#">Productos</a>
+	      <li class="nav-item dropdown-submenu">
+        	<a class="nav-link test" tabindex="-1" href="#">Productos <span class="caret"></span></a>
+        	<ul class="dropdown-menu">
+        	<%
+        	 Iterator<Categoria> i = categorias.iterator();
+        	 while(i.hasNext()){
+        		 Categoria categoria = i.next();
+        		 %>
+        		 <li><a tabindex="-1" href='http://localhost:8080/TiendaOnline/categorias/graficas.jsp?id=<%=categoria.getId()%>'><%=categoria.getNombre()%></a></li>
+        		 <%
+        	 }
+        	
+        	%>
+	          
+	
+          	</ul>
 	      </li>
 	      
 	    </ul>
@@ -62,3 +81,13 @@ carrito.getContador();
 	</nav>
 
 </div>
+
+<script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
