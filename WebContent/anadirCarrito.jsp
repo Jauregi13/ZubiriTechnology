@@ -20,7 +20,7 @@ Producto producto = productoModelo.selectPorId(id_producto);
 <body>
 <%
 
-Carrito carrito = new Carrito();
+Carrito carrito = (Carrito)session.getAttribute("carrito");
 ArrayList<Producto> productos = new ArrayList();
 
 productos.add(producto);

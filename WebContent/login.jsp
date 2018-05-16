@@ -17,10 +17,10 @@
 	
 	Cliente cliente = clienteModelo.login(nom_usuario, password);
 	
-	cliente = clienteModelo.selectPorUsuario(nom_usuario);
-	
 	
 	if(cliente != null){
+		
+		cliente = clienteModelo.selectPorUsuario(nom_usuario);
 		
 		session.setAttribute("usuario", cliente);
 		Carrito carrito = new Carrito();

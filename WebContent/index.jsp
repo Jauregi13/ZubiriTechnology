@@ -23,7 +23,6 @@ ArrayList<Producto> productos = productoModelo.selectAll();
 
 <%
 Object sesion = session.getAttribute("usuario");
-Cliente cliente = (Cliente)sesion;
 Object sesion2 = session.getAttribute("carrito");
 
 
@@ -70,6 +69,7 @@ else if(sesion.equals("incorrecto")){
 	session.removeAttribute("usuario");
 	}
 else {
+	Cliente cliente = (Cliente)sesion;
 		if(cliente.getRol().equals("Usuario")){
 			%>
 			<jsp:include page="./menus/menuUsuario.jsp"></jsp:include>
