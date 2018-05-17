@@ -10,11 +10,8 @@ Carrito carrito = (Carrito)session.getAttribute("carrito");
 CategoriaModelo categoriaModelo = new CategoriaModelo();
 ArrayList<Categoria> categorias = categoriaModelo.selectAll();
 
-carrito.getContador();
-
 %>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://localhost:8080/Biblioteca/css/style.css" type ="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -69,7 +66,7 @@ carrito.getContador();
 	       		<a class="nav-link" href="#"><%=cliente.getNombreUsuario() %></a>
 	      	</li>
 	      	<li class="nav-item">
-	       		<a class="nav-link" href="http://localhost:8080/TiendaOnline/carrito.jsp">Carrito <%=carrito.getContador() %></a>
+	       		<a class="nav-link" href="http://localhost:8080/TiendaOnline/carrito.jsp"><img src="images/carrito.svg"> <%=carrito.getCantidad_total() %></a>
 	      	</li>
 		    <li class="nav-item">
 		        <a class="nav-link" href="http://localhost:8080/TiendaOnline/Logout.jsp" >Cerrar Sesión</a>

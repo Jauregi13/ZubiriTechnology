@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="modelo.*" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Iterator" %>
 <%
 
 int id_producto = Integer.parseInt(request.getParameter("id"));
@@ -9,6 +10,8 @@ int id_producto = Integer.parseInt(request.getParameter("id"));
 ProductoModelo productoModelo = new ProductoModelo();
 
 Producto producto = productoModelo.selectPorId(id_producto);
+
+//producto.setCantidad_pedida(producto.getCantidad_pedida() + 1);
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -21,14 +24,41 @@ Producto producto = productoModelo.selectPorId(id_producto);
 <%
 
 Carrito carrito = (Carrito)session.getAttribute("carrito");
-ArrayList<Producto> productos = new ArrayList();
+if(carrito.getProductos()== null){
+	ArrayList<Producto> productos = new ArrayList();
+	carrito.setProductos(productos);
+}
 
-productos.add(producto);
+if(carrito.getProductos().size() == 0){
+	producto.setCantidad_pedida(1);
+	carrito.getProductos().add(producto);
+}
+else {
+	boolean existe = false;
+	for(int i = 0; i < carrito.getProductos().size(); i ++){
+		if(producto.getId() == carrito.getProductos().get(i).getId()){
+			existe = true;
+			carrito.getProductos().get(i).setCantidad_pedida(carrito.getProductos().get(i).getCantidad_pedida() + 1);
+			break;
+		}
+		else {
+			existe = false;
+			
+		}
+	}
+	
+	if(!existe){
+		producto.setCantidad_pedida(1);
+		carrito.getProductos().add(producto);
+	}
+}
+	
 
-carrito.setProductos(productos);
-carrito.setContador(carrito.getContador() + 1);
+	carrito.setCantidad_total(carrito.getCantidad_total() + 1);
+	
+	
+	carrito.setPrecio_total(carrito.getPrecio_total() + producto.getPrecio());
 
-session.setAttribute("carrito", carrito);
 
 response.sendRedirect("http://localhost:8080/TiendaOnline/index.jsp");
 

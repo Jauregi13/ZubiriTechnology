@@ -8,6 +8,16 @@ public class Producto {
 	private double precio;
 	private int stock;
 	private int idCategoria;
+	private int cantidad_pedida;
+	
+	
+	
+	public int getCantidad_pedida() {
+		return cantidad_pedida;
+	}
+	public void setCantidad_pedida(int cantidad_pedida) {
+		this.cantidad_pedida = cantidad_pedida;
+	}
 	public int getId() {
 		return id;
 	}
