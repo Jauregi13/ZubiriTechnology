@@ -43,7 +43,7 @@ else {
 			<table class="table">
 				<thead class="bg-light">
 				  <tr>
-				    <th>#</th>
+				    <th></th>
 				    <th>Producto</th>
 				    <th>Precio</th>
 				    <th>Unidades</th>
@@ -53,21 +53,19 @@ else {
 				<tbody>
 					<%
 						ArrayList<Producto> productos = carrito.getProductos();
-						Iterator<Producto> i = productos.iterator();
-						
-						while(i.hasNext()){
-							Producto producto = i.next();
+						for(int i = 0; i < productos.size(); i ++){
+							Producto producto = productos.get(i);
 							%>
 							<tr>
-				    		<th scope="row"><%=producto.getId() %></th>
+				    		<th scope="row"><%=i+1%></th>
 						    <td><%=producto.getNombre() %></td>
 						    <td><%=producto.getPrecio() %></td>
 						    <td><%=producto.getCantidad_pedida() %></td>
-						    <td><%=producto.getPrecio() * producto.getCantidad_pedida() %></td>
+						    <td><%=producto.getPrecio() * producto.getCantidad_pedida() %><span class="glyphicon glyphicon-euro"></span></td>
 				  			</tr>
 				  			<%
-						}						
-						
+						}
+
 					%>
 					
 					<thead class="bg-light">
@@ -83,14 +81,11 @@ else {
 						    <td></td>
 							<td><%=carrito.getPrecio_total() %></td>
 						
-						</tbody>
-					
-					
+						</tbody>				
 					</thead>
-					
-				  
 				</tbody>
 			</table>
+			<a class="btn btn-primary" href="Comprar">Realizar Pedido</a>
 			<%
 		}
 	
