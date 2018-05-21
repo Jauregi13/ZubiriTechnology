@@ -85,7 +85,7 @@ else {
 					</thead>
 				</tbody>
 			</table>
-			<a class="btn btn-primary" href="Comprar">Realizar Pedido</a>
+			<a class="btn btn-primary" href='Comprar'>Realizar Pedido</a>
 			<%
 		}
 	
