@@ -1,7 +1,9 @@
 package controlador;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,11 +34,18 @@ public class Comprar extends HttpServlet{
 		
 		Iterator<Producto> i = carrito.getProductos().iterator();
 		
-		Date fecha_compra = new Date();
-				
-		DateFormat formato = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+		Date fecha_actual = new Date();
 		
-		formato.format(fecha_compra);
+		DateFormat formato = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
+		
+		String fecha_string = formato.format(fecha_actual);
+		
+		Date fecha_compra = new Date();
+		try {
+			fecha_compra = formato.parse(fecha_string);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		
 		
 		while(i.hasNext()){
@@ -45,6 +54,8 @@ public class Comprar extends HttpServlet{
 			pedidoModelo.Comprar(cliente.getId(), producto.getId(), fecha_compra);
 			
 		}
+		PrintWriter out = response.getWriter();
+		out.println(formato.format(fecha_compra));
 		
 	}
 	

@@ -32,6 +32,26 @@
         <url-pattern>/Comprar</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>CrearProducto</servlet-name>
+        <servlet-class>controlador.CrearProducto</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CrearProducto</servlet-name>
+        <url-pattern>/CrearProducto</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>EditarProducto</servlet-name>
+        <servlet-class>controlador.EditarProducto</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EditarProducto</servlet-name>
+        <url-pattern>/EditarProducto</url-pattern>
+    </servlet-mapping>
+    
 
 <!-- Fin de la publicacion de servlets -->
 

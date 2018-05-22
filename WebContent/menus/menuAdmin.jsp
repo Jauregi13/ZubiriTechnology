@@ -5,6 +5,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import = "modelo.*" %>
+<%
+
+Cliente cliente = (Cliente)session.getAttribute("usuario");
+
+%>
 
 <style>
   /* Make the image fully responsive */
@@ -33,8 +39,15 @@
 	      <li class="nav-item active">
 	        <a class="nav-link" href="http://localhost:8080/TiendaOnline/index.jsp">Inicio <span class="sr-only">(current)</span></a>
 	      </li>
+	      <li class="nav-item dropdown-submenu">
+        	<a class="nav-link test" tabindex="-1" href="#">Productos <span class="caret"></span></a>
+        	<ul class="dropdown-menu">
+        		<li><a tabindex="-1" href='CrearProducto'>Crear producto</a></li>
+        		<li><a tabindex="-1" href="#">Editar producto</a></li>
+          	</ul>
+	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Productos</a>
+	        <a class="nav-link" href="#">Categorias</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">Usuarios</a>
@@ -43,10 +56,10 @@
 	    </ul>
 	    <ul class="navbar-nav">
 	    	<li class="nav-item">
-	       		<a class="nav-link disabled" href="#">Registrarse</a>
+	       		<a class="nav-link " href="#"><%=cliente.getNombreUsuario() %></a>
 	      	</li>
 		    <li class="nav-item">
-		        <a class="nav-link disabled" href="#" >Iniciar Sesión</a>
+		        <a class="nav-link" href="http://localhost:8080/TiendaOnline/Logout.jsp" >Cerrar Sesión</a>
 		    </li>
 	    
 	    </ul>
@@ -54,48 +67,15 @@
 	  </div>
 	</nav>
 	
-	<div class="row">
-		<div class="col-sm-3">
-			<div class="card" style="width: 18rem;">
-				  <img class="card-img-top" src="..." alt="Card image cap">
-				  <div class="card-body">
-				    <h5 class="card-title">Card title</h5>
-				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				    <a href="#" class="btn btn-primary">Go somewhere</a>
-				  </div>
-			</div>
-		
-		</div>
-		<div class="col-sm-1"></div>
-		<div class="col-sm-3">
-			<div class="card" style="width: 18rem;">
-				  <img class="card-img-top" src="..." alt="Card image cap">
-				  <div class="card-body">
-				    <h5 class="card-title">Card title</h5>
-				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				    <a href="#" class="btn btn-primary">Go somewhere</a>
-				  </div>
-			</div>
-		
-		</div>
-		<div class="col-sm-1"></div>
-		<div class="col-sm-3">
-			<div class="card" style="width: 18rem;">
-				  <img class="card-img-top" src="..." alt="Card image cap">
-				  <div class="card-body">
-				    <h5 class="card-title">Card title</h5>
-				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				    <a href="#" class="btn btn-primary">Go somewhere</a>
-				  </div>
-			</div>
-		
-		</div>
-	
-	
-	
-	
-		
-	
-	</div>
 
 </div>
+
+<script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>

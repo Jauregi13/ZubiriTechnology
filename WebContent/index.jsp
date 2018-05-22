@@ -24,7 +24,7 @@ ArrayList<Producto> productos = productoModelo.selectAll();
 <%
 Object sesion = session.getAttribute("usuario");
 Object sesion2 = session.getAttribute("carrito");
-
+Cliente cliente = new Cliente();
 
 if(sesion == null && sesion2 == null){
 %>	
@@ -69,7 +69,7 @@ else if(sesion.equals("incorrecto")){
 	session.removeAttribute("usuario");
 	}
 else {
-	Cliente cliente = (Cliente)sesion;
+	 cliente = (Cliente)sesion;
 		if(cliente.getRol().equals("Usuario")){
 			%>
 			<jsp:include page="./menus/menuUsuario.jsp"></jsp:include>
@@ -152,6 +152,16 @@ else {
 				    		<h5 class="card-title"><%=producto.getNombre() %></h5>
 				    		<p class="card-text"><%=producto.getDescripcion() %></p>
 				    		<a href="anadirCarrito.jsp?id=<%=producto.getId() %>" class="btn btn-primary">Más info</a>
+				    		<%
+				    			if(cliente.getRol().equals("Admin")){
+				    				%>
+				    				<a href="EditarProducto.jsp?id=<%=producto.getId() %>" class="btn btn-warning">Editar Producto</a>
+				    				<br>
+				    				<a href="EditarProducto.jsp?id=<%=producto.getId() %>" class="btn btn-danger">Eliminar Producto</a>
+				    				<%
+				    			}
+				    		
+				    		%>
 				  		</div>
 					</div>
 		
