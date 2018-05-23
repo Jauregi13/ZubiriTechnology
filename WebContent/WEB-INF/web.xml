@@ -52,6 +52,16 @@
         <url-pattern>/EditarProducto</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>ListarProductoId</servlet-name>
+        <servlet-class>controlador.ListarProductoId</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ListarProductoId</servlet-name>
+        <url-pattern>/ListarProductoId</url-pattern>
+    </servlet-mapping>
+    
 
 <!-- Fin de la publicacion de servlets -->
 

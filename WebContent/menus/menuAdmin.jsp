@@ -10,6 +10,9 @@
 
 Cliente cliente = (Cliente)session.getAttribute("usuario");
 
+
+
+
 %>
 
 <style>

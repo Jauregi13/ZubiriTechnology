@@ -155,7 +155,7 @@ else {
 				    		<%
 				    			if(cliente.getRol().equals("Admin")){
 				    				%>
-				    				<a href="EditarProducto.jsp?id=<%=producto.getId() %>" class="btn btn-warning">Editar Producto</a>
+				    				<a href="ListarProductoId?id=<%=producto.getId() %>" class="btn btn-warning">Editar Producto</a>
 				    				<br>
 				    				<a href="EditarProducto.jsp?id=<%=producto.getId() %>" class="btn btn-danger">Eliminar Producto</a>
 				    				<%

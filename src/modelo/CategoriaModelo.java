@@ -1,5 +1,6 @@
 package modelo;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -31,6 +32,32 @@ public class CategoriaModelo extends Conector{
 		}
 		
 		return null;
+	}
+	
+	
+	public Categoria selectPorId(int id_categoria){
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement("SELECT * FROM categorias WHERE id = ?");
+			
+			pst.setInt(1, id_categoria);
+			
+			ResultSet rs = pst.executeQuery();
+			
+			if(rs.next()){
+				Categoria categoria = new Categoria();
+				
+				categoria.setId(id_categoria);
+				categoria.setNombre(rs.getString("nombre"));
+				
+				return categoria;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+		
 	}
 
 }
