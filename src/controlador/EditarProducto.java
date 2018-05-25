@@ -14,6 +14,12 @@ public class EditarProducto extends HttpServlet{
 		
 		int id = Integer.parseInt(request.getParameter("id"));
 		String nombre = request.getParameter("nombre");
+		String descripcion = request.getParameter("descripcion");
+		double precio = Integer.parseInt(request.getParameter("precio"));
+		int stock = Integer.parseInt(request.getParameter("stock"));
+		String categoria = request.getParameter("categoria");
+		
+		
 	}
 
 }

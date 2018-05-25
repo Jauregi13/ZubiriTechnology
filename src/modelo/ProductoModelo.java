@@ -94,6 +94,22 @@ public class ProductoModelo extends Conector {
 		return null;
 	}
 	
+	public void updateProducto (Producto producto){
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement("UPDATE productos SET nombre = ?, descripcion = ?, precio = ?, stock = ?, id_categoria = ? WHERE id = ?");
+			
+			pst.setString(1, producto.getNombre());
+			pst.setString(2, producto.getDescripcion());
+			pst.setDouble(3, producto.getPrecio());
+			pst.setInt(4, producto.getStock());
+			pst.setInt(5, producto.getIdCategoria());
+			pst.setInt(6, prod);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	
 
 }

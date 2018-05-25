@@ -66,9 +66,22 @@ else {
 		    <label>Categoria</label>
 		    <select class="custom-select" name="categoria">
 			    <option selected><%=categoria.getNombre() %></option>
-			 	<c:forEach items="${categoria}" var="categoria">
-					${categoria.nombre} <br>
-				</c:forEach>
+			 	<%
+			 	Iterator<Categoria> i = categorias.iterator();
+			 	while(i.hasNext()){
+			 		categoria = i.next();
+			 		%>
+			 		<option value ='<%=categoria.getNombre() %>'><%=categoria.getNombre() %></option>
+			 		<%
+			 	}
+			 	
+			 	%>
+			 	
+			 	
+			 	
+			 	<!--<c:forEach items="${categorias}" var="categoria">
+					<option value='${categoria.nombre}'>${categoria.nombre}</option> <br>
+				</c:forEach>-->
 			    
 			    		
 			    		
