@@ -104,7 +104,9 @@ public class ProductoModelo extends Conector {
 			pst.setDouble(3, producto.getPrecio());
 			pst.setInt(4, producto.getStock());
 			pst.setInt(5, producto.getIdCategoria());
-			pst.setInt(6, prod);
+			pst.setInt(6, producto.getId());
+			
+			pst.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

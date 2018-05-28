@@ -56,7 +56,7 @@ else {
 		  </div>
 		  <div class="form-group">
 		    <label>Precio</label>
-		    <input type="number" class="form-control" name="precio" value=<%=producto.getPrecio() %>>
+		    <input type="number" class="form-control" name="precio" value="194.99">
 		  </div>
 		  <div class="form-group">
 		    <label>Stock</label>
