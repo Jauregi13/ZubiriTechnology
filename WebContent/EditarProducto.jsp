@@ -10,7 +10,7 @@ Object sesion = (Cliente)session.getAttribute("usuario");
 
 CategoriaModelo categoriaModelo = new CategoriaModelo();
 
-ArrayList<Categoria> categorias = categoriaModelo.selectAll();
+
 
 Producto producto = (Producto)request.getAttribute("producto");
 

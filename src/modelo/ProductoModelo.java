@@ -112,6 +112,23 @@ public class ProductoModelo extends Conector {
 		}
 	}
 	
+	public void insertProducto (Producto producto){
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement("INSERT INTO productos (nombre, descripcion, precio, stock, id_categoria) VALUES (?,?,?,?,?)");
+			
+			pst.setString(1, producto.getNombre());
+			pst.setString(2, producto.getDescripcion());
+			pst.setDouble(3, producto.getPrecio());
+			pst.setInt(4, producto.getStock());
+			pst.setInt(5, producto.getIdCategoria());
+			
+			pst.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	
 
 }

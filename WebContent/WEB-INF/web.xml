@@ -1,68 +1,39 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-
-<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
-    version="2.4">
-
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
   <display-name>Servlets ejemplo</display-name>
   <description>
      Servlets de ejemplo para practicar
   </description>
-
-<!-- Publicamos nuestro servlet aqui -->
-
-    <servlet>
-        <servlet-name>Login</servlet-name>
-        <servlet-class>controlador.Login</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Login</servlet-name>
-        <url-pattern>/Login</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>Comprar</servlet-name>
-        <servlet-class>controlador.Comprar</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Comprar</servlet-name>
-        <url-pattern>/Comprar</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>CrearProducto</servlet-name>
-        <servlet-class>controlador.CrearProducto</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>CrearProducto</servlet-name>
-        <url-pattern>/CrearProducto</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>EditarProducto</servlet-name>
-        <servlet-class>controlador.EditarProducto</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>EditarProducto</servlet-name>
-        <url-pattern>/EditarProducto</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>ListarProductoId</servlet-name>
-        <servlet-class>controlador.ListarProductoId</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>ListarProductoId</servlet-name>
-        <url-pattern>/ListarProductoId</url-pattern>
-    </servlet-mapping>
-    
-
-<!-- Fin de la publicacion de servlets -->
-
+  <servlet>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>controlador.Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Comprar</servlet-name>
+    <servlet-class>controlador.Comprar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Comprar</servlet-name>
+    <url-pattern>/Comprar</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditarProducto</servlet-name>
+    <servlet-class>controlador.EditarProducto</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditarProducto</servlet-name>
+    <url-pattern>/EditarProducto</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ListarProductoId</servlet-name>
+    <servlet-class>controlador.ListarProductoId</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListarProductoId</servlet-name>
+    <url-pattern>/ListarProductoId</url-pattern>
+  </servlet-mapping>
 </web-app>

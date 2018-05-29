@@ -45,7 +45,7 @@ Cliente cliente = (Cliente)session.getAttribute("usuario");
 	      <li class="nav-item dropdown-submenu">
         	<a class="nav-link test" tabindex="-1" href="#">Productos <span class="caret"></span></a>
         	<ul class="dropdown-menu">
-        		<li><a tabindex="-1" href='CrearProducto'>Crear producto</a></li>
+        		<li><a tabindex="-1" href='http://localhost:8080/TiendaOnline/crearProducto.jsp'>Crear producto</a></li>
         		<li><a tabindex="-1" href="#">Editar producto</a></li>
           	</ul>
 	      </li>
