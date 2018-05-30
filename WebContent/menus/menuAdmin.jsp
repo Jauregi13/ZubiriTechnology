@@ -3,6 +3,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import = "modelo.*" %>
@@ -62,7 +63,7 @@ Cliente cliente = (Cliente)session.getAttribute("usuario");
 	       		<a class="nav-link " href="#"><%=cliente.getNombreUsuario() %></a>
 	      	</li>
 		    <li class="nav-item">
-		        <a class="nav-link" href="http://localhost:8080/TiendaOnline/Logout.jsp" >Cerrar Sesión</a>
+		        <a class="nav-link" href="http://localhost:8080/TiendaOnline/Logout">Cerrar Sesión</a>
 		    </li>
 	    
 	    </ul>

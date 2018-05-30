@@ -3,6 +3,7 @@
 <%@ page import="modelo.*" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Iterator" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% 
 
 Cliente cliente = (Cliente)session.getAttribute("usuario");
@@ -69,7 +70,7 @@ ArrayList<Categoria> categorias = categoriaModelo.selectAll();
 	       		<a class="nav-link" href="http://localhost:8080/TiendaOnline/carrito.jsp"><img src="images/carrito.svg"> <%=carrito.getCantidad_total() %></a>
 	      	</li>
 		    <li class="nav-item">
-		        <a class="nav-link" href="http://localhost:8080/TiendaOnline/Logout.jsp" >Cerrar Sesión</a>
+		        <a class="nav-link" href="Logout" >Cerrar Sesión</a>
 		    </li>
 	    
 	    </ul>

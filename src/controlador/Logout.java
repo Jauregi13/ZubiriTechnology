@@ -1,28 +1,24 @@
 package controlador;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import modelo.Categoria;
-import modelo.CategoriaModelo;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ListarCategorias
+ * Servlet implementation class Logout
  */
-@WebServlet("/ListarCategorias")
-public class ListarCategorias extends HttpServlet {
+@WebServlet("/Logout")
+public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListarCategorias() {
+    public Logout() {
         super();
     }
 
@@ -31,14 +27,12 @@ public class ListarCategorias extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		CategoriaModelo categoriaModelo = new CategoriaModelo();
+		HttpSession sesion = request.getSession();
 		
-		ArrayList<Categoria> categorias = categoriaModelo.selectAll();
-		
-		request.setAttribute("categorias", categorias);
-		
-		
-	}
+		sesion.removeAttribute("usuario");
+		sesion.removeAttribute("carrito");
 
+		response.sendRedirect("http://localhost:8080/TiendaOnline/index.jsp");
+	}
 
 }

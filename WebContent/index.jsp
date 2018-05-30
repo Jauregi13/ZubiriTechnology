@@ -3,6 +3,8 @@
 <%@ page import="modelo.*" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Iterator" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%
 CategoriaModelo categoriaModelo = new CategoriaModelo();
 ArrayList<Categoria> categorias = categoriaModelo.selectAll();
@@ -26,13 +28,16 @@ Object sesion = session.getAttribute("usuario");
 Object sesion2 = session.getAttribute("carrito");
 Cliente cliente = new Cliente();
 
-if(sesion == null && sesion2 == null){
 %>	
-	<jsp:include page="./menus/menuPrincipal.html"></jsp:include>
-<%
-}	
-else if(sesion.equals("incorrecto")){
-		%>
+<c:choose>
+	<c:when test="${sesion == null && sesion2 == null}">
+	
+		<jsp:include page="./menus/menuPrincipal.html"></jsp:include>
+	
+	</c:when>
+	
+	<c:when test="${sesion.equals(incorrecto)}">
+	
 		<jsp:include page="./menus/menuPrincipal.html"></jsp:include>
 		
 		<script>
@@ -65,11 +70,35 @@ else if(sesion.equals("incorrecto")){
 	      </div>
 	    </div>
 	  </div>
+		<% session.removeAttribute("usuario");%>
+	</c:when>
+	<c:otherwise>
+		<% cliente = (Cliente)sesion;%>
+		
+		<c:choose>
+			<c:when test=""></c:when>
+		
+		
+		</c:choose>
+	
+	
+	
+	</c:otherwise>
+
+
+
+
+</c:choose>
+	
+<%	
+else if(sesion.equals("incorrecto")){
+		%>
+		
 	<%
-	session.removeAttribute("usuario");
+	
 	}
 else {
-	 cliente = (Cliente)sesion;
+	 
 		if(cliente.getRol().equals("Usuario")){
 			%>
 			<jsp:include page="./menus/menuUsuario.jsp"></jsp:include>

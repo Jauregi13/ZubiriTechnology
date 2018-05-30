@@ -11,6 +11,7 @@ Object sesion = (Cliente)session.getAttribute("usuario");
 CategoriaModelo categoriaModelo = new CategoriaModelo();
 
 
+ArrayList<Categoria> categorias = (ArrayList)request.getAttribute("categorias");
 
 Producto producto = (Producto)request.getAttribute("producto");
 
@@ -65,27 +66,10 @@ else {
 		  <div class="form-group">
 		    <label>Categoria</label>
 		    <select class="custom-select" name="categoria">
-			    <option selected><%=categoria.getNombre() %></option>
-			 	<%
-			 	Iterator<Categoria> i = categorias.iterator();
-			 	while(i.hasNext()){
-			 		categoria = i.next();
-			 		%>
-			 		<option value ='<%=categoria.getNombre() %>'><%=categoria.getNombre() %></option>
-			 		<%
-			 	}
-			 	
-			 	%>
-			 	
-			 	
-			 	
-			 	<!--<c:forEach items="${categorias}" var="categoria">
+			    <option selected><%=categoria.getNombre() %></option> 	
+			 	<c:forEach items="${categorias}" var="categoria">
 					<option value='${categoria.nombre}'>${categoria.nombre}</option> <br>
-				</c:forEach>-->
-			    
-			    		
-			    		
-			    
+				</c:forEach>			    			    					    					    
   			</select>
 		  </div>
 		  <button type="submit" class="btn btn-primary">Cambiar</button>
