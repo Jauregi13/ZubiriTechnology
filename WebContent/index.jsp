@@ -76,7 +76,18 @@ Cliente cliente = new Cliente();
 		<% cliente = (Cliente)sesion;%>
 		
 		<c:choose>
-			<c:when test=""></c:when>
+			<c:when test="${cliente.getRol().equals(Usuario) }">
+				
+				<jsp:include page="./menus/menuUsuario.jsp"></jsp:include>
+				
+			
+			</c:when>
+			
+			<c:otherwise>
+				
+				<jsp:include page="./menus/menuAdmin.jsp"></jsp:include>
+			
+			</c:otherwise>
 		
 		
 		</c:choose>
@@ -89,31 +100,9 @@ Cliente cliente = new Cliente();
 
 
 </c:choose>
-	
-<%	
-else if(sesion.equals("incorrecto")){
-		%>
-		
-	<%
-	
-	}
-else {
-	 
-		if(cliente.getRol().equals("Usuario")){
-			%>
-			<jsp:include page="./menus/menuUsuario.jsp"></jsp:include>
-			<%
-		}
-		else {
-			
-			%>
-			<jsp:include page="./menus/menuAdmin.jsp"></jsp:include>
-		<%
-		}
-	}	
 
 
-%>
+
 <div class="container">
 	<div id="demo" class="carousel slide" data-ride="carousel">
 	
